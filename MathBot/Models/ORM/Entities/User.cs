@@ -11,9 +11,9 @@ namespace MathBot.Models.ORM.Entities
         public string Surname { get; set; }
         public string UserName { get; set; }
         public DateTime BirthDate { get; set; }
-        public int Password { get; set; }
+        public string Password { get; set; }
 
-        public List<Operation> Operations{ get; set; }
+        public List<UserOperation> UserOperations{ get; set; }
 
         //Bir kullanıcının birden çok sorusu olabileceği gibi aynı soruyu soran birden çok kullanıcı da olabilir. 
     }

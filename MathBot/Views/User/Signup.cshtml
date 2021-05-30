@@ -1,0 +1,97 @@
+﻿@model MathBot.Models.VM.SignupVM
+
+@{
+    ViewData["Title"] = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Signup</h1>
+
+
+<hr />
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Signup">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthdate" class="control-label"></label>
+                <input asp-for="Birthdate" class="form-control" />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+<div class="card-body">
+    <form action="/User/Signup" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(q => q.Name, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                    @Html.TextBoxFor(q => q.Name, new { @placeholder = "Enter Your Name *", @class = "form-control", @id = "Name" })
+                    @Html.ValidationMessageFor(q => q.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(q => q.Surname, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                    @Html.TextBoxFor(q => q.Surname, new { @placeholder = "Enter Your Surname *", @class = "form-control", @id = "Surname" })
+                    @Html.ValidationMessageFor(q => q.Surname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(q => q.UserName, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                    @Html.TextBoxFor(q => q.UserName, new { @placeholder = "Enter Your Surname *", @class = "form-control", @id = "UserName" })
+                    @Html.ValidationMessageFor(q => q.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(q => q.Birthdate, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                    @Html.TextBoxFor(q => q.Birthdate, new { @placeholder = "yyyy-mm-dd *", @class = "form-control", @id = "Birthdate" })
+                    @Html.ValidationMessageFor(q => q.Birthdate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(q => q.Password, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                    @Html.PasswordFor(q => q.Password, new { @placeholder = "Create Your Password *", @class = "form-control", @id = "Password" })
+                    @Html.ValidationMessageFor(q => q.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Add User</button>
+        <div class="clearfix"></div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
