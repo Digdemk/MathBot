@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MathBot.Models.ORM.Entities;
+using MathBothCommon.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace MathBot.Models.VM
 
         public double SecondNumber { get; set; }
 
-        
+        public List<OperationType> OperationTypes { get; set; }
 
         public double Result { get; set; }
     }

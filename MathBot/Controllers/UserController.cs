@@ -1,5 +1,4 @@
 ﻿using MathBot.Models.ORM.Context;
-using MathBot.Models.ORM.Entities;
 using MathBot.Models.VM;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using MathBothCommon.Model;
+using MathBot.Models.ORM.Entities;
 
 namespace MathBot.Controllers
 {
@@ -20,6 +21,7 @@ namespace MathBot.Controllers
             _mathBotContext = mathBotContext;
         }
 
+        [Route("Login")]
         [HttpGet]
         public IActionResult Login()
         {
@@ -31,7 +33,10 @@ namespace MathBot.Controllers
         {
             if (ModelState.IsValid)
             {
+
+
                 User user = _mathBotContext.Users.FirstOrDefault(x => x.UserName == model.UserName && x.Password == model.Password);
+
                 if (user != null) 
                 {
                     var claims = new List<Claim>
@@ -48,7 +53,7 @@ namespace MathBot.Controllers
                     //_mathBotContext.SaveChanges();
 
                     //return RedirectToAction("Index", "Home");
-                    return Redirect("~/Home");
+                    return Redirect("~/../../ Home/Index");
 
                 }
                 else
@@ -73,7 +78,7 @@ namespace MathBot.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index");
         }
-
+        [Route("Signup")]
         public IActionResult Signup()
         {
             return View();
@@ -101,7 +106,7 @@ namespace MathBot.Controllers
                 return View();
             }
 
-            return RedirectToAction("Login", "User");
+            return RedirectToAction("Login");
         }
     }
 }

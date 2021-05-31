@@ -30,29 +30,55 @@
             @Html.ValidationSummary()
             <p style="color:red">@ViewBag.error</p>
         </div>
-       
 
-        <form action="/User/Login" method="post">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" class="form-control form-control-user" name="UserName"/>
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="Password" class="form-control form-control-user" />
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-user btn-block" name="name" value="Login" />
-            </div>
 
-        </form>
+        @*<form action="/User/Login" method="post">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control form-control-user" name="UserName"/>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="Password" class="form-control form-control-user" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-user btn-block" name="name" value="Login" />
+                </div>
 
-        <hr>
+            </form>*@
+
+        <div class="card-body">
+            <form action="/User/Login" method="post">
+                @*<div class="row">*@
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(q => q.UserName, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                            @Html.TextBoxFor(q => q.UserName, new { @placeholder = "Enter Your Username *", @class = "form-control", @id = "UserName" })
+                            @Html.ValidationMessageFor(q => q.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(q => q.Password, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                            @Html.PasswordFor(q => q.Password, new { @placeholder = "Enter Your Password *", @class = "form-control", @id = "Password" })
+                            @Html.ValidationMessageFor(q => q.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                @*</div>*@
+                @*<div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-user btn-block" name="name" value="Login" />
+                </div>*@
+
+                <button type="submit" class="btn btn-primary pull-right">Login</button>
+                <div class="clearfix"></div>
+            </form>
+            <hr>
+        </div>
         <div class="text-center">
             <a class="small" href="forgot-password.html">Forgot Password?</a>
         </div>
         <div class="text-center">
-            Don't have an account? <a class="small" href="/User/Register">Create an Account!</a>
+            Don't have an account? <a class="small" href="/User/Signup">Create an Account!</a>
         </div>
     </div>
 </body>

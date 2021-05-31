@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MathBot.Models.ORM.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace MathBot.Models.ORM.Entities
+
+namespace MathBothCommon.Model
 {
     public class Operation : Base
     {
@@ -11,7 +12,8 @@ namespace MathBot.Models.ORM.Entities
         public double SecondNumber { get; set; }
         public double Result { get; set; }
         public OperationType OperationType { get; set; }
-        public List<UserOperation> UserOperations { get; set; }
-           
+        //public List<UserOperation> UserOperations { get; set; } 
+
+
     }
 }

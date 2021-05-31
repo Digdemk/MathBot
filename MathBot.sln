@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathBot", "MathBot\MathBot.csproj", "{EEA72F05-163B-48DA-BFC0-FC79D5152BB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathBot", "MathBot\MathBot.csproj", "{EEA72F05-163B-48DA-BFC0-FC79D5152BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathBothCommon", "MathBothCommon\MathBothCommon.csproj", "{EF6D92F1-8ABE-422D-813E-98985911C47A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathBotConsumer", "MathBotConsumer\MathBotConsumer.csproj", "{9C8CE47C-6CAE-4261-8792-464D2E63DFF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,13 @@ Global
 		{EEA72F05-163B-48DA-BFC0-FC79D5152BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEA72F05-163B-48DA-BFC0-FC79D5152BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEA72F05-163B-48DA-BFC0-FC79D5152BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF6D92F1-8ABE-422D-813E-98985911C47A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF6D92F1-8ABE-422D-813E-98985911C47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF6D92F1-8ABE-422D-813E-98985911C47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF6D92F1-8ABE-422D-813E-98985911C47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8CE47C-6CAE-4261-8792-464D2E63DFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8CE47C-6CAE-4261-8792-464D2E63DFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8CE47C-6CAE-4261-8792-464D2E63DFF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

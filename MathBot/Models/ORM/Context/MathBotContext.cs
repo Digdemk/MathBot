@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MathBot.Models.VM;
+using MathBothCommon.Model;
 
 namespace MathBot.Models.ORM.Context
 {
@@ -18,6 +19,8 @@ namespace MathBot.Models.ORM.Context
 
         public DbSet<User> Users { get; set; }
         public DbSet<Operation> Operations { get; set; }
-        public DbSet<MathBot.Models.VM.SignupVM> SignupVM { get; set; }
+
+        //public DbSet<MathBot.Models.VM.SignupVM> SignupVM { get; set; }
+       
     }
 }
