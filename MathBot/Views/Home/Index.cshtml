@@ -1,8 +1,79 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model MathBot.Models.VM.OperationVM
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to MathBot!</h1>
+
 </div>
+
+
+<div class="card-body">
+
+    <a href="/Login">Login</a> <a href="/Signup">Signup</a>
+                                    <hr />
+    <form action="/Home/Index" method="post">
+        <div class="row">
+
+            <div class="form-group col-md-5">
+                @Html.LabelFor(q => q.FirstNumber, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                @Html.TextBoxFor(q => q.FirstNumber, new { @placeholder = "Enter Number *", @class = "form-control", @id = "Fno" })
+                @Html.ValidationMessageFor(q => q.FirstNumber, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="form-group col-md-5">
+                @Html.LabelFor(q => q.SecondNumber, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                @Html.TextBoxFor(q => q.SecondNumber, new { @placeholder = "Enter Number *", @class = "form-control", @id = "Sno" })
+                @Html.ValidationMessageFor(q => q.SecondNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-md-5">
+                @Html.LabelFor(q => q.OperationTypes, new { @class = "col-sm-3 text-left control-label col-form-label" })
+
+                @Html.ValidationMessageFor(q => q.OperationTypes, "", new { @class = "text-danger" })
+                @*@Html.DropDownListFor(q => q.OperationTypes, Html.GetEnumSelectList<OperationType>())
+                    @Html.GetEnumSelectList
+                    @Html.DropDownList("OperationType", Html.GetEnumSelectList<Operation>)*@
+
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-md-5">
+                @Html.LabelFor(q => q.Result, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                @Html.TextBoxFor(q => q.OperationTypes, new { @class = "form-control", @id = "Result" })
+                @Html.ValidationMessageFor(q => q.Result, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@*<div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                @Html.LabelFor(q => q.opera, new { @class = "col-sm-3 text-left control-label col-form-label" })
+                @Html.TextBoxFor(q => q.SecondNumber, new { @placeholder = "Enter Number *", @class = "form-control", @id = "Sno" })
+                @Html.ValidationMessageFor(q => q.SecondNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+

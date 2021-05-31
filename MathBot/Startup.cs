@@ -1,6 +1,9 @@
+using MathBot.Models.ORM.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +26,17 @@ namespace MathBot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddControllersWithViews();
+            services.AddDbContext<MathBotContext>();
+
+            //options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/User/Login/";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,12 +58,17 @@ namespace MathBot
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute("default", "{Controller=Home}/{Action=Index}/{id?}");
+                endpoints.MapRazorPages();
+              
             });
         }
     }
